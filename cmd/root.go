@@ -60,8 +60,6 @@ aapr KualiCo/student-engineering,cam3ron2,regality`,
 	}
 )
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -70,7 +68,6 @@ func Execute() {
 }
 
 func init() {
-	// Here you will define your flags and configuration settings.
 	rootCmd.PersistentFlags().BoolVar(&debug, "debug", false, "Print debug output")
 	cobra.OnInitialize(initConfig)
 }
