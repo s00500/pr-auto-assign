@@ -3,8 +3,9 @@
 ![codeql](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/codeql-analysis.yml/badge.svg)
 ![tests](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml/badge.svg)
 ![build](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-release.yml/badge.svg)
+![downloads](https://img.shields.io/github/downloads/cam3ron2/pr-auto-assign/latest/total)
 ![License](https://img.shields.io/github/license/cam3ron2/pr-auto-assign)
-![Language](https://img.shields.io/badge/language-Go-red.svg)
+![Language](https://img.shields.io/badge/language-Go-blue.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/cam3ron2/pr-auto-assign)](https://goreportcard.com/report/github.com/cam3ron2/pr-auto-assign)
 
 A Github action that will automatically assign a PR to its creator, and assign review to specified users, teams, or a combination of both.
