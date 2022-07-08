@@ -1,0 +1,14 @@
+name: Tests
+on: [pull_request]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  auto_assign:
+    name: Auto Assign PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cam3ron2/pr-auto-assign@master
+        with:
+          reviewers: "cam3ron2"
