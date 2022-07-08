@@ -24,4 +24,4 @@ else
   export a=arm64
 fi
 
-./bin/${PWD##*/}-${o}-${a} ${1} --debug
+./dist/${PWD##*/}-${o}-${a} ${1} --debug
