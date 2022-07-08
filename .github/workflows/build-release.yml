@@ -25,3 +25,5 @@ jobs:
           commit-message: "Update cross-platform builds"
           branch: "update-builds"
           labels: "automerge"
+          title: "Update cross-platform builds"
+          author: "cam3ron2 <cameron@larsenfam.org>"
