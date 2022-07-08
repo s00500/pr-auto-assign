@@ -3,7 +3,7 @@ module github.com/cam3ron2/pr-auto-assign
 go 1.18
 
 require (
-	github.com/google/go-github/v45 v45.1.0
+	github.com/google/go-github/v45 v45.2.0
 	github.com/spf13/cobra v1.5.0
 	golang.org/x/oauth2 v0.0.0-20220608161450-d0670ef3b1eb
 )
