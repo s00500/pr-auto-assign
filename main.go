@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package main
 
-import "pr-auto-assign/cmd"
+import "github.com/cam3ron2/pr-auto-assign/cmd"
 
 func main() {
 	cmd.Execute()

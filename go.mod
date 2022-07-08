@@ -1,4 +1,4 @@
-module pr-auto-assign
+module github.com/cam3ron2/pr-auto-assign
 
 go 1.18
 
