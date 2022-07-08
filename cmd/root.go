@@ -182,7 +182,6 @@ func checkUserExists(target string) (bool, string) {
 }
 
 func requestReview(users []string, teams []string) {
-	// request review for PR
 	ctx := context.Background()
 	reviewRequest := &github.ReviewersRequest{
 		Reviewers:     users,
@@ -201,7 +200,6 @@ func requestReview(users []string, teams []string) {
 }
 
 func assignPull(owner string) {
-	// update PR owner
 	log.Printf("Assigning PR %v to: %v", pr[2], owner)
 	ctx := context.Background()
 	request := &github.IssueRequest{
