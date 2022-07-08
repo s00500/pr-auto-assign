@@ -1,21 +1,48 @@
 name: Tests
-on: [pull_request]
+on:
+  pull_request:
+    types: [labeled]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  auto_assign:
-    name: Auto Assign PR
+  assign:
+    name: Assign PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - uses: cam3ron2/pr-auto-assign@latest
+      - uses: cam3ron2/pr-auto-assign@update-builds
         with:
           reviewers: "cam3ron2"
+
+  manage:
+    name: Manage
+    needs: [assign]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
       - name: Close Pull
+        if: ${{ needs.assign.result=='failure' }}
         uses: peter-evans/close-pull@v2
         with:
           comment: Auto-closing pull request
           delete-branch: true
+      - name: Automatically Merge PR
+        if: ${{ github.event.label.name == 'automerge' }} && ${{ needs.assign.result!='failure' }}
+        uses: plm9606/automerge_actions@1.2.2
+        with:
+          reviewers-number: 0
+          auto-delete: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    name: Release
+    needs: [assign, manage]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        uses: K-Phoen/semver-release-action@master
+        with:
+          release_branch: master

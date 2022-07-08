@@ -1,8 +1,7 @@
 name: Build
 on:
-  release:
-    types:
-      - created
+  push:
+    branches: [master]
 
 jobs:
   generate:
@@ -19,3 +18,10 @@ jobs:
           name: "pr-auto-assign"
           compress: "false"
           dest: "dist"
+      - name: Create Pull Request
+        id: create
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "Update cross-platform builds"
+          branch: "update-builds"
+          labels: "automerge"
