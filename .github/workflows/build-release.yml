@@ -2,6 +2,11 @@ name: Build
 on:
   push:
     branches: [master]
+    # paths:
+    #   - "go.mod"
+    #   - "go.sum"
+    #   - "main.go"
+    #   - "cmd/**"
 
 jobs:
   generate:
@@ -22,8 +27,8 @@ jobs:
         id: create
         uses: peter-evans/create-pull-request@v4
         with:
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: "Update cross-platform builds"
           branch: "update-builds"
           labels: "automerge"
           title: "Update cross-platform builds"
-          author: "cam3ron2 <cameron@larsenfam.org>"
