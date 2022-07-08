@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - uses: cam3ron2/pr-auto-assign@master
+      - uses: cam3ron2/pr-auto-assign@latest
         with:
           reviewers: "MyOrg/some-people,myUsername,someOtherUser"
 ```
