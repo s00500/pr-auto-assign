@@ -24,4 +24,4 @@ else
   export a=arm64
 fi
 
-./dist/${PWD##*/}-${o}-${a} ${1} --debug
+./dist/pr-auto-assign-${o}-${a} ${1} --debug
