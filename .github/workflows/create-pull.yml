@@ -1,4 +1,4 @@
-name: Test
+name: Create Pull Request
 on: 
   workflow_run:
     workflows: ["Build"]
@@ -22,5 +22,3 @@ jobs:
       - name: Create Pull Request
         id: create
         uses: peter-evans/create-pull-request@v4
-        with: 
-          delete-branch: 'true'
