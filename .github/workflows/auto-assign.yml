@@ -14,3 +14,8 @@ jobs:
       - uses: cam3ron2/pr-auto-assign@latest
         with:
           reviewers: "cam3ron2"
+      - name: Close Pull
+        uses: peter-evans/close-pull@v2
+        with:
+          comment: Auto-closing pull request
+          delete-branch: true
