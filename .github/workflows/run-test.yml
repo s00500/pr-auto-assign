@@ -1,5 +1,25 @@
 name: Test
 on: 
-  release:
-    types:
-      - edited
+  workflow_run:
+    workflows: ["Build"]
+    types: 
+      - completed
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  test_action:
+    name: Test Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Make change
+        run: |
+          echo "date -u > .last_test"
+      - name: Create Pull Request
+        id: create
+        uses: peter-evans/create-pull-request@v4
+        with: 
+          delete-branch: 'true'
