@@ -1,7 +1,7 @@
 # PR Auto Assign
 
 ![codeql](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/codeql-analysis.yml/badge.svg)
-![tests](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml/badge.svg)
+[![tests](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml/badge.svg)](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml)
 [![build](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-release.yml/badge.svg)](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-release.yml)
 ![downloads](https://img.shields.io/github/downloads/cam3ron2/pr-auto-assign/latest/total)
 ![License](https://img.shields.io/github/license/cam3ron2/pr-auto-assign)
