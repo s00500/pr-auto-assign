@@ -29,6 +29,7 @@ jobs:
         with:
           comment: Auto-closing pull request
           delete-branch: true
+      # wait for checks to pass before merging
       - name: Automatically Merge PR
         if: ${{ github.event.label.name == 'automerge' }} && ${{ needs.assign.result!='failure' }}
         uses: plm9606/automerge_actions@1.2.2
@@ -36,7 +37,7 @@ jobs:
           reviewers-number: 0
           auto-delete: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
+  # need to wait for PR to be closed to begin
   release:
     name: Release
     needs: [assign, manage]
