@@ -148,7 +148,6 @@ func createClient() *github.Client {
 }
 
 func checkTeamExists(target string) (bool, string) {
-	// check target team exists
 	// need to add validation to ensure string contains exactly one '/'
 	if debug {
 		log.Printf("Searching for Team '%v'", target)

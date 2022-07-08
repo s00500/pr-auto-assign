@@ -37,13 +37,4 @@ jobs:
           reviewers-number: 0
           auto-delete: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-  # need to wait for PR to be closed to begin
-  release:
-    name: Release
-    needs: [assign, manage]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Release
-        uses: K-Phoen/semver-release-action@master
-        with:
-          release_branch: master
+
