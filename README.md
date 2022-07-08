@@ -2,6 +2,7 @@
 
 ![codeql](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/codeql-analysis.yml/badge.svg)
 ![tests](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml/badge.svg)
+![build](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-release.yml/badge.svg)
 
 A Github action that will automatically assign a PR to its creator, and assign review to specified users, teams, or a combination of both.
 
