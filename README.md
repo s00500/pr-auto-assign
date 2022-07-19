@@ -2,7 +2,7 @@
 
 ![codeql](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/codeql-analysis.yml/badge.svg)
 [![tests](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml/badge.svg)](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/auto-assign.yml)
-[![build](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-a.yml/badge.svg)](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-release.yml)
+[![build](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-app.yml/badge.svg)](https://github.com/cam3ron2/pr-auto-assign/actions/workflows/build-app.yml)
 ![downloads](https://img.shields.io/github/downloads/cam3ron2/pr-auto-assign/v1.0.6/total)
 ![License](https://img.shields.io/github/license/cam3ron2/pr-auto-assign)
 ![Language](https://img.shields.io/badge/language-Go-blue.svg)
