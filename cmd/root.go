@@ -240,22 +240,54 @@ func checkHasAssignee(c int8) {
 }
 
 func assignReview(reviewers string) {
+	// Get PR creator to exclude them from reviewers
+	ctx := context.Background()
+	resp, _, err := client.PullRequests.Get(ctx, ownerRepo[0], ownerRepo[1], number)
+	if err != nil {
+		log.Printf("Error getting PR details: %v", err)
+		log.Fatalf("Unable to get PR: %v", pr[2])
+	}
+
+	var prCreator string
+	if resp.User != nil && resp.User.Login != nil {
+		prCreator = *resp.User.Login
+		log.Printf("PR created by: %v", prCreator)
+	}
+
 	reviewer := strings.Split(reviewers, ",")
 	users := []string{}
 	teams := []string{}
+	skippedUsers := []string{}
+
 	for _, r := range reviewer {
 		if isTeam(r) {
 			_, id := checkTeamExists(r)
 			teams = append(teams, id)
 		} else {
 			_, id := checkUserExists(r)
-			users = append(users, id)
+			// Skip if this user is the PR creator
+			if strings.EqualFold(id, prCreator) {
+				skippedUsers = append(skippedUsers, id)
+				log.Printf("Skipping PR creator '%v' from reviewers list", id)
+			} else {
+				users = append(users, id)
+			}
 		}
+	}
+
+	if len(skippedUsers) > 0 {
+		log.Printf("Skipped users (PR creator): %v", skippedUsers)
 	}
 
 	if debug {
 		log.Printf("Assigning to Users: %v", users)
 		log.Printf("Assigning to Teams: %v", teams)
 	}
-	requestReview(users, teams)
+
+	// Only request review if there are users or teams to add
+	if len(users) > 0 || len(teams) > 0 {
+		requestReview(users, teams)
+	} else {
+		log.Printf("No reviewers to add (all were skipped)")
+	}
 }
